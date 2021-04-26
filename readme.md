@@ -8,30 +8,31 @@ Your primary goal in this code challenge is to build an SPA (_single page applic
 
 You can build your SPA with any frontend language, library or framework that you want.
 
-##### Feature requirements
+#### Feature requirements
+- Your SPA should have a navbar with a title and the current user's info.
+- Your SPA must have the following pages:
+  - Login page
+    - Should accept an email and password.
+    - Reject invalid login attempts.
+  - Games index page
+    - Landing page after login.
+    - Should display a table of all games in the system.
+    - Should have an input for real time search to filter the list of games
+      - Use `GET /api/games?filter[search]=text` to have the API perform the search for you.
+    - The API returns 5 games at a time so your table should be paginated.
+  - Game specific page
+    - Page dedicated to displaying details about one individual game.
+    - Users should also be able to update the game on this page as well.
+  - Game create page
+    - Page with a form to add a new game to the system.
 
-Your SPA must have the following pages:
-- Login page
-  - Should accept an email and password.
-  - Reject invalid login attempts.
-- Games index page
-  - Landing page after login.
-  - Should display a table of all games in the system.
-  - Should have an input for real time search to filter the list of games
-    - Use `GET /api/games?filter[search]=text` to have the API perform the search for you.
-- Game specific page
-  - Page dedicated to displaying details about one individual game.
-  - Users should also be able to update the game on this page as well.
-- Game create page
-  - Page with a form to add a new game to the system.
-
-##### Development requirements
+#### Development requirements
 - SPA must be responsive, scale accordingly from desktops all the way down to mobile devices.
 - SPA needs to handle user authentication (login, logout, protected routes, etc.)
 - Write tests for your web application using Jest, Ava or any testing framework that you prefer.
 - Commit all of your code to a personal public repository on GitHub or GitLab.
 
-##### Things to consider
+#### Things to consider
 
 Although not required, the following might help you get this code challenge done faster:
 
@@ -39,9 +40,13 @@ Although not required, the following might help you get this code challenge done
 - Pair your chosen library with a framework. (_Vue / Nuxt.js_) (_React / Next.js_)
 - Use a CSS framework such as Bootstrap, Bulma or Tailwind.
 
-##### Things to remember
+#### Things to remember
 - If you get stuck, that's okay. We are primarily looking at how you write your code and how you solve problems.
 - Quality over quantity.
+
+#### Bonus points
+- Make the UI / UX simple, pretty and clean.
+- No page refreshes.
 
 #### Video Game API Documentation
 
@@ -261,3 +266,10 @@ Example response `204`:
 ```
 {}
 ```
+
+#### Test users
+
+You can sign in as the following users. Each user's password is `secret-games`:
+- john@example.test
+- jane@example.test
+- sally@example.test
