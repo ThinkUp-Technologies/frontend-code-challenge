@@ -6,7 +6,7 @@ So, sounds like you're interested in working for ThinkUp Technologies. We think 
 
 Your primary goal in this code challenge is to build an SPA (_single page application_) that allows users to login and manage a collection of video games. Your SPA must consume a RESTful API which we provide for you and is documented further down. 
 
-You can build your SPA with any frontend language, library or framework that you want.
+You can build your SPA with any frontend language, library or framework that you want but it must adhere to the following requirements:
 
 #### Feature requirements
 - Your SPA should have a navbar with a title and the current user's info.
@@ -18,7 +18,7 @@ You can build your SPA with any frontend language, library or framework that you
     - Landing page after login.
     - Should display a table of all games in the system.
     - Should have an input for real time search to filter the list of games
-      - Use `GET /api/games?filter[search]=text` to have the API perform the search for you.
+      - Use `GET /api/games?filter[search]=minecraft` to have the API perform the search for you.
     - The API returns 5 games at a time so your table should be paginated.
   - Game specific page
     - Page dedicated to displaying details about one individual game.
@@ -41,7 +41,7 @@ Although not required, the following might help you get this code challenge done
 - Use a CSS framework such as Bootstrap, Bulma or Tailwind.
 
 #### Things to remember
-- If you get stuck, that's okay. We are primarily looking at how you write your code and how you solve problems.
+- If you get stuck, that's okay. We are primarily looking at how you write your code, what tools you use, what your workflow is like and how you solve problems.
 - Quality over quantity.
 
 #### Bonus points
@@ -75,8 +75,8 @@ Authorization: Bearer TOKEN_HERE
 Example payload:
 ```
 {
-  "email": "john.smith@example.com",
-  "password": "secret-apple"
+  "email": "john@example.test",
+  "password": "secret-games"
 }
 ```
 
@@ -186,7 +186,10 @@ Example response `200`:
 ```
 
 **Notes:**
-- Use `/api/games?filter[search]=text` to search for specific games.
+- Use `/api/games?filter[search]=skyrim` to search for specific games.
+- Box art urls will have `{width}x{height}`. It's up to you to replace those values. 
+  - Consider showing thumbnails on the main index page and a larger image on the details page.
+- Append the query string `page[number]=2` to get the next page of results.
 
 ###### Show game
 `GET /api/games/{id}` - _Requires authentication_
@@ -232,6 +235,10 @@ Example response `201`:
 }
 ```
 
+**Notes:**
+- If the request payload is invalid, a 422 is returned with the errors.
+  - Consider displaying the returned errors on the page.
+
 ###### Update game
 `PUT /api/games/{id}` - _Requires authentication_
 
@@ -253,6 +260,10 @@ Example response `200`:
   "updated_at": "2021-04-26T23:07:29.000000Z"
 }
 ```
+
+**Notes:**
+- If the request payload is invalid, a 422 is returned with the errors.
+  - Consider displaying the returned errors on the page.
 
 ###### Delete game
 `DELETE /api/games/{id}` - _Requires authentication_
